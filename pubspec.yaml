@@ -40,7 +40,7 @@ dependencies:
   #dart run flutter_native_splash:create
 flutter_native_splash:
   image: 'assets/images/logo.png'
-  color: "0981D1"
+  color: "1F7A8C"
   android_12:
     image: 'assets/images/logo.png'
     color: "#1F7A8C"
