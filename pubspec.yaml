@@ -37,18 +37,30 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   url_launcher: ^6.2.1
 
+  #dart run flutter_native_splash:create
+flutter_native_splash:
+  image: 'assets/images/logo.png'
+  color: "0981D1"
+  android_12:
+    image: 'assets/images/logo.png'
+    color: "#1F7A8C"
+    icon_background_color: "#1F7A8C"
+
+  #dart run flutter_launcher_icons:main
+flutter_launcher_icons:
+  android: 'launcher_icon'
+  ios: true
+  remove_alpha_ios: true
+  image_path: 'assets/images/icon.png'
+
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.3.6
-  logger: ^2.0.2+1
   flutter_test:
     sdk: flutter
+  logger: ^2.0.2+1
   very_good_analysis: ^5.1.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
 flutter:
 
 
