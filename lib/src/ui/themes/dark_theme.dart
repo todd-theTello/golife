@@ -56,6 +56,8 @@ final ThemeData darkTheme = FlexThemeData.dark(
     navigationRailMutedUnselectedIcon: false,
     navigationRailIndicatorSchemeColor: SchemeColor.primary,
     navigationRailIndicatorOpacity: 1,
+    buttonPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+    buttonMinSize: Size(64, 48),
   ),
   useMaterial3ErrorColors: true,
   visualDensity: VisualDensity.compact,
