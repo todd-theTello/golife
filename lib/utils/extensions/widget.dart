@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-extension on Widget {
+extension T on Widget {
   ///
   Widget visibility({required bool isVisible}) {
     return Visibility(visible: isVisible, child: this);
