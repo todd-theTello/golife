@@ -91,12 +91,12 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
                     texts: [
                       const BaseText(text: 'Already have an account? '),
                       BaseText.custom(
-                          text: 'Sign in',
-                          underlined: true,
-                          onTapped: () async {
-                            await ref.read(authorizationStateProvider.notifier).setOnboarded();
-                            print('hehe');
-                          }),
+                        text: 'Sign in',
+                        underlined: true,
+                        onTapped: () async {
+                          await ref.read(authorizationStateProvider.notifier).setOnboarded();
+                        },
+                      ),
                     ],
                     textAlign: TextAlign.center,
                   )
