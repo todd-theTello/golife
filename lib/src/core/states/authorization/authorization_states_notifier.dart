@@ -29,33 +29,37 @@ class AuthorizationStateNotifier extends StateNotifier<AuthorizationStates> {
   }
 
   /// check the onboarding state depending on the value from local db
-  void checkOnboarding({bool? isLoginPage}) {
+  void checkOnboarding({required bool isLoginPage}) {
     if (LocalPreference.isLoggedIn) {
       state = Authorized();
     } else if (LocalPreference.hasOnboarded) {
-      state = Unauthorized(isLoginPage: isLoginPage);
+      if (isLoginPage) {
+        state = Unauthorized();
+      } else {
+        state = UnauthorizedRegister();
+      }
     } else {
       state = Onboarding();
     }
   }
 
   /// set the the value on onboarded to true
-  Future<void> setOnboarded({bool? isLoginPage}) async {
+  Future<void> setOnboarded({bool isLoginPage = true}) async {
     await LocalPreference.writeBoolToStorage(key: LocalPreference.KEY_ON_BOARDED, value: true);
-    checkOnboarding();
+    checkOnboarding(isLoginPage: isLoginPage);
   }
 
   /// set the the value on onboarded to true
   Future<void> setLoggedIn() async {
     await LocalPreference.writeBoolToStorage(key: LocalPreference.KEY_IS_LOGIN, value: true);
-    checkOnboarding();
+    checkOnboarding(isLoginPage: true);
     LocalPreference.isLoggedIn.log();
   }
 
   /// set the the value on onboarded to true
   Future<void> setLogOut() async {
     await LocalPreference.writeBoolToStorage(key: LocalPreference.KEY_IS_LOGIN, value: false);
-    checkOnboarding();
+    checkOnboarding(isLoginPage: true);
     LocalPreference.isLoggedIn.log();
   }
 }

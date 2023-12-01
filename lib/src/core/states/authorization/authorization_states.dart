@@ -9,13 +9,10 @@ abstract class AuthorizationStates {}
 class Authorized extends AuthorizationStates {}
 
 /// state when user is not authorized but has passed onboarding stage
-class Unauthorized extends AuthorizationStates {
-  /// constructor
-  Unauthorized({bool? isLoginPage}) : isLoginPage = isLoginPage ?? true;
+class Unauthorized extends AuthorizationStates {}
 
-  /// sets whether to navigate to the login page or the registration
-  final bool isLoginPage;
-}
+/// state when user is not authorized but has passed onboarding stage
+class UnauthorizedRegister extends AuthorizationStates {}
 
 /// state when user hasn't passed the landing page
 class Onboarding extends AuthorizationStates {}
