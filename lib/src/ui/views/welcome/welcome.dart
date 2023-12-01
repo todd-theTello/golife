@@ -29,6 +29,7 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
   ];
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -72,8 +73,8 @@ class _WelcomeViewState extends ConsumerState<WelcomeView> {
             right: 0,
             child: Container(
               padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
-              decoration: const BoxDecoration(
-                color: Colors.white,
+              decoration: BoxDecoration(
+                color: theme.scaffoldBackgroundColor,
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(16),
                 ),
