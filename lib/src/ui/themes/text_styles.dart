@@ -15,7 +15,7 @@ TextStyle kHeading2({Color? color, FontWeight? fontWeight, double? height}) {
   return TextStyle(
     fontSize: 16,
     color: color,
-    height: height ?? 22 / 16,
+    height: height ?? 24 / 16,
     fontWeight: fontWeight ?? FontWeight.w600,
   );
 }
