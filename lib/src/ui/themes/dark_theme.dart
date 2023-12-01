@@ -59,6 +59,10 @@ final ThemeData darkTheme = FlexThemeData.dark(
     buttonPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
     buttonMinSize: Size(64, 48),
   ),
+  keyColors: const FlexKeyColors(
+    keepPrimary: true,
+    keepSecondaryContainer: true,
+  ),
   useMaterial3ErrorColors: true,
   visualDensity: VisualDensity.compact,
   useMaterial3: true,
