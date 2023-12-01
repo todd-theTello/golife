@@ -13,23 +13,34 @@ final routeNotifierProvider = ChangeNotifierProvider<RouteNotifier>((ref) {
 class RouteNotifier extends ChangeNotifier {
   ///
   RouteNotifier(this._ref) {
+    /// listens for state changes in [AuthorizationStateNotifier]
     _ref.listen(authorizationStateProvider, (_, __) => notifyListeners());
   }
   final Ref _ref;
 
-  ///
+  /// handles the redirect login in go router
   String? redirectLogic(BuildContext context, GoRouterState state) {
     final routeState = _ref.watch(authorizationStateProvider);
-
+    final path = state.uri.path;
     if (routeState is Authorized) {
-      return '/main';
-    } else if (routeState is Unauthorized) {
-      if (routeState.isLoginPage) {
-        return '/login';
+      print(path);
+      if (path.startsWith('/sign-in') || path.startsWith('/sign-up') || path.startsWith('/welcome')) {
+        return '/main';
       }
-      return '/registration';
-    } else {
-      return '/';
     }
+    if (routeState is Unauthorized) {
+      if (!path.startsWith('/sign-in')) {
+        return '/sign-in';
+      }
+    }
+    if (routeState is UnauthorizedRegister) {
+      if (!path.startsWith('/sign-up')) {
+        return '/sign-up';
+      }
+    }
+    if (routeState is Onboarding) {
+      return '/welcome';
+    }
+    return null;
   }
 }
