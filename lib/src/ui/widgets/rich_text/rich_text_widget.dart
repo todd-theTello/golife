@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../themes/themes.dart';
 import 'base_text.dart';
 import 'custom_text.dart';
 
@@ -38,6 +37,7 @@ class RichTextWidget extends StatelessWidget {
   final int? maxLines;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return RichText(
       textAlign: textAlign ?? TextAlign.start,
       maxLines: maxLines,
@@ -49,15 +49,18 @@ class RichTextWidget extends StatelessWidget {
               text: baseText.text,
               style: baseText.style ??
                   customStyle ??
-                  kBody3(fontWeight: FontWeight.w500, color: kPrimaryColor100).copyWith(
+                  theme.textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: theme.primaryColorLight,
                     decoration: baseText.underlined ? TextDecoration.underline : null,
+                    decorationColor: baseText.underlined ? theme.colorScheme.secondary : null,
                   ),
               recognizer: TapGestureRecognizer()..onTap = baseText.onTapped,
             );
           } else {
             return TextSpan(
               text: baseText.text,
-              style: baseText.style ?? styleForAll ?? kBody3(fontWeight: FontWeight.w500),
+              style: baseText.style ?? styleForAll ?? theme.textTheme.bodySmall?.copyWith(fontWeight: FontWeight.w500),
             );
           }
         },
