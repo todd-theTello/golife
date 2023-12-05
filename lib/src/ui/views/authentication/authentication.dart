@@ -6,7 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:slide_countdown/slide_countdown.dart';
+import 'package:pinput/pinput.dart';
 
 import '../../../../utils/extensions/num.dart';
 import '../../../../utils/extensions/widget.dart';
@@ -16,7 +16,6 @@ import '../../themes/themes.dart';
 import '../../widgets/app_bars/app_bars.dart';
 import '../../widgets/buttons/buttons.dart';
 import '../../widgets/rich_text/rich_text.dart';
-import '../../widgets/text_fields/pin_code_fields/pin_code_fields.dart';
 import '../../widgets/text_fields/text_field_with_validator.dart';
 
 part 'forgot_password.dart';

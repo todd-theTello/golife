@@ -49,22 +49,17 @@ class _VerifyOtpViewState extends ConsumerState<VerifyOtpView> {
                 'Enter the verification code we sent to your email te****@outlook.com',
                 style: kBody2(),
               ).paddingOnly(bottom: 36),
-              PinCodeTextField(
-                appContext: context,
-                controller: otp,
+              Pinput(
                 length: 6,
-                autoFocus: true,
-                onChanged: (_) {
-                  checkForm();
-                },
-                keyboardType: TextInputType.number,
-                useHapticFeedback: true,
-                pinTheme: PinTheme(
-                  activeColor: theme.primaryColor,
-                  inactiveColor: theme.dividerColor,
-                  fieldOuterPadding: EdgeInsets.zero,
-                  shape: PinCodeFieldShape.box,
-                  borderRadius: BorderRadius.circular(8),
+                controller: otp,
+                onChanged: (_) => checkForm(),
+                defaultPinTheme: PinTheme(
+                  textStyle: kBody1(),
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  decoration: BoxDecoration(
+                    color: theme.primaryColor.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ).paddingOnly(bottom: 12),
               ValueListenableBuilder(
@@ -103,12 +98,8 @@ class _VerifyOtpViewState extends ConsumerState<VerifyOtpView> {
                     valueListenable: formIsValid,
                     builder: (context, valid, _) {
                       return FilledButton(
-                        onPressed: valid
-                            ? () {
-                                ref.read(authorizationStateProvider.notifier).setLoggedIn();
-                              }
-                            : null,
-                        child: const Text('Send link'),
+                        onPressed: valid ? () => ref.read(authorizationStateProvider.notifier).setLoggedIn() : null,
+                        child: const Text('Verify'),
                       ).paddingOnly(bottom: 15);
                     }),
               ],
