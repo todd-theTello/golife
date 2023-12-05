@@ -56,10 +56,15 @@ final ThemeData darkTheme = FlexThemeData.dark(
     navigationRailMutedUnselectedIcon: false,
     navigationRailIndicatorSchemeColor: SchemeColor.primary,
     navigationRailIndicatorOpacity: 1,
+    buttonPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+    buttonMinSize: Size(64, 48),
+  ),
+  keyColors: const FlexKeyColors(
+    keepPrimary: true,
+    keepSecondaryContainer: true,
   ),
   useMaterial3ErrorColors: true,
   visualDensity: VisualDensity.compact,
   useMaterial3: true,
-// To use the Playground font, add GoogleFonts package and uncomment
-// fontFamily: GoogleFonts.notoSans().fontFamily,
+  fontFamily: 'Gilroy',
 );
